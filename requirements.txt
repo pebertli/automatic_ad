@@ -14,6 +14,8 @@ scikit-image
 numpy<2.0
 pillow
 git+https://github.com/openai/CLIP.git
+diffusers
 transformers
+accelerate
 einops
 timm 

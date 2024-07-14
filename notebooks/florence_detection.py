@@ -5,6 +5,7 @@ from unittest.mock import patch
 from transformers.dynamic_module_utils import get_imports
 import re
 
+# a workaround for the flash_attn issue
 def fixed_get_imports(filename: str | os.PathLike) -> list[str]:
     if not str(filename).endswith("modeling_florence2.py"):
         return get_imports(filename)
@@ -118,7 +119,7 @@ def florence_inference_region(image_path, prompt):
 
     # using imagedraw to draw the bounding box
     draw = ImageDraw.Draw(image)
-    draw.rectangle([square_x_min, square_y_min, square_x_max, square_y_max], outline="white", width=3)
+    draw.rectangle([square_x_min, square_y_min, square_x_max, square_y_max], outline="red", width=3)
        
 
     return image, (square_x_min, square_y_min, square_x_max, square_y_max)    

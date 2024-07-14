@@ -3,7 +3,7 @@ import torch
 
 from diffusers import AutoPipelineForInpainting
 
-
+# a function to extend the image and mask
 def extend_image(image, origin, canvas_size):
     # add padding to the image
     canvas = PIL.Image.new("RGB", canvas_size, (255, 255, 255))    
@@ -13,9 +13,9 @@ def extend_image(image, origin, canvas_size):
     canvas.paste(black_canvas, origin)
     mask = canvas
 
-
     return image_extended, mask
-  
+
+# a class for inpainting using the stable diffusion model  
 class Inpainting:
     def __init__(self):
         self.pipe = AutoPipelineForInpainting.from_pretrained(

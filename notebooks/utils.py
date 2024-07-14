@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 
+# a canvas template class
 class CanvasTemplate:
     def __init__(self, canvas_size, elements):
         self.canvas_size = canvas_size
